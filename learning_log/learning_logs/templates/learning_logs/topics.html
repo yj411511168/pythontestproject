@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'learning_logs/base.html' %}
+{% block content %}
+  <p>Topics</p>
+
+  <ul>
+    {% for topic in topics %}
+      <li>
+          <a herf="{% url 'learning_logs:topic' topic.id %}">{{ topic.name }}>
+            {{ topic.text }}</a>
+      </li>
+    {% empty %}
+      <li>There are no entries for this topic yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
+</body>
+</html>
